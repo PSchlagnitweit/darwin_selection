@@ -46,7 +46,7 @@ func _process(delta):
 	if get_slide_count() > 0:
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
-			if collision.is_class(self.get_class):
+			if collision is Creature_Control:
 				if collision.size > self.size * 1.2:
 					self.get_eaten(collision)
 	update()
