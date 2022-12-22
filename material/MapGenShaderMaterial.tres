@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://material/MapGen.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/mouse_pressed = false
+shader_param/mouse_button_index = null
+shader_param/mouse_position = Vector2( 0, 0 )
+shader_param/fireProbability = null
+shader_param/treeProbability = null
+shader_param/click_threshold = 1.0
