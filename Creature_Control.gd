@@ -76,6 +76,3 @@ func return_object_left():
 func get_eaten(collision: Creature_Control):
 	collision.food_count += 1
 	queue_free()
-
-func is_type(type): return type == "MyObject" or .is_type(type)
-func    get_type(): return "MyObject"
