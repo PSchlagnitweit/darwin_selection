@@ -43,6 +43,28 @@ margin_right = 102.0
 margin_bottom = 14.0
 text = "Map Generation"
 
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 18.0
+margin_right = 102.0
+margin_bottom = 22.0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 26.0
+margin_right = 102.0
+margin_bottom = 46.0
+columns = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer"]
+margin_right = 41.0
+margin_bottom = 20.0
+text = "Start"
+
+[node name="PauseButton" type="Button" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer"]
+margin_left = 45.0
+margin_right = 95.0
+margin_bottom = 20.0
+text = "Pause"
+
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/UI"]
 margin_left = 120.0
 margin_right = 124.0
