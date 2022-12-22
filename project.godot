@@ -14,14 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://evolution/Creature.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Creature_Control",
+"language": "GDScript",
+"path": "res://Creature_Control.gd"
+}, {
 "base": "Node",
 "class": "EvolutionaryAlgorithm",
 "language": "GDScript",
 "path": "res://evolution/EvolutionaryAlgorithm.gd"
+}, {
+"base": "Area2D",
+"class": "Food",
+"language": "GDScript",
+"path": "res://Food.gd"
 } ]
 _global_script_class_icons={
 "Creature": "",
-"EvolutionaryAlgorithm": ""
+"Creature_Control": "",
+"EvolutionaryAlgorithm": "",
+"Food": ""
 }
 
 [application]
