@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/SimulationUI.gd" type="Script" id=2]
 [ext_resource path="res://scenes/MapGen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/MapGenUI.gd" type="Script" id=4]
 
 [node name="MarginContainer" type="MarginContainer"]
 margin_right = 2092.0
@@ -13,24 +14,26 @@ margin_right = 2092.0
 margin_bottom = 798.0
 
 [node name="MapGenViewportContainer" type="ViewportContainer" parent="VBoxContainer"]
-margin_right = 400.0
+margin_right = 300.0
 margin_bottom = 798.0
 
 [node name="Viewport" type="Viewport" parent="VBoxContainer/MapGenViewportContainer"]
-size = Vector2( 400, 500 )
+size = Vector2( 300, 400 )
+size_override_stretch = true
 handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="MapGen" parent="VBoxContainer/MapGenViewportContainer/Viewport" instance=ExtResource( 3 )]
 
 [node name="UI" type="HBoxContainer" parent="VBoxContainer"]
-margin_left = 404.0
-margin_right = 713.0
+margin_left = 304.0
+margin_right = 613.0
 margin_bottom = 798.0
 
 [node name="MapGenUI" type="PanelContainer" parent="VBoxContainer/UI"]
 margin_right = 116.0
 margin_bottom = 798.0
+script = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/UI/MapGenUI"]
 margin_left = 7.0
@@ -64,6 +67,42 @@ margin_left = 45.0
 margin_right = 95.0
 margin_bottom = 20.0
 text = "Pause"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 50.0
+margin_right = 102.0
+margin_bottom = 54.0
+
+[node name="GridContainer2" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 58.0
+margin_right = 102.0
+margin_bottom = 110.0
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
+margin_top = 5.0
+margin_right = 7.0
+margin_bottom = 19.0
+text = "x"
+
+[node name="SizeXSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
+margin_left = 11.0
+margin_right = 85.0
+margin_bottom = 24.0
+max_value = 1000.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
+margin_top = 33.0
+margin_right = 7.0
+margin_bottom = 47.0
+text = "Y"
+
+[node name="SizeYSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
+margin_left = 11.0
+margin_top = 28.0
+margin_right = 85.0
+margin_bottom = 52.0
+max_value = 1000.0
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/UI"]
 margin_left = 120.0
@@ -118,8 +157,8 @@ margin_bottom = 74.0
 text = "-> Take Map ->"
 
 [node name="MapViewportContainer" type="ViewportContainer" parent="VBoxContainer"]
-margin_left = 717.0
-margin_right = 1117.0
+margin_left = 617.0
+margin_right = 1017.0
 margin_bottom = 798.0
 
 [node name="Viewport" type="Viewport" parent="VBoxContainer/MapViewportContainer"]
