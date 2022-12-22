@@ -52,7 +52,7 @@ func evolution(creatures):
 	
 	#var new_creatures = clone(creatures)
 	var new_creatures = procriate(creatures)
-	
+	# mutate all new creatures
 	for new_creature in new_creatures:
 		mutate(new_creature)
 	# hand new creatures to main
