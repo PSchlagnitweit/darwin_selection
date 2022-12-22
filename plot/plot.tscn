@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://plot/plot.gd" type="Script" id=1]
+
+[sub_resource type="QuadMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="xy-plane" type="MeshInstance" parent="."]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 4, 4, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+
+[node name="xz-plane" type="MeshInstance" parent="."]
+transform = Transform( 8, 0, 0, 0, -3.49691e-07, 8, 0, -8, -3.49691e-07, 4, 0, 4 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+
+[node name="yz-plane" type="MeshInstance" parent="."]
+transform = Transform( -3.49691e-07, 0, 8, 0, 8, 0, -8, 0, -3.49691e-07, 0, 4, 4 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 4, 4, 4 )
+
+[node name="x-axis" type="CSGCylinder" parent="."]
+transform = Transform( -2.18557e-09, 8, 0, -0.05, -3.49691e-07, 0, 0, 0, 0.05, 4, 0, 0 )
+generate_lightmap = false
+calculate_tangents = false
+material = SubResource( 2 )
+
+[node name="z-axis" type="CSGCylinder" parent="."]
+transform = Transform( 9.55343e-17, -3.49691e-07, -0.05, -0.05, -3.49691e-07, 0, -2.18557e-09, 8, -2.18557e-09, 0, 0, 4 )
+generate_lightmap = false
+calculate_tangents = false
+material = SubResource( 2 )
+
+[node name="y-axis" type="CSGCylinder" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 8, 0, 0, 0, 0.05, 0, 4, 0 )
+generate_lightmap = false
+calculate_tangents = false
+material = SubResource( 2 )
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+visible = false
+
+[node name="x-light" type="DirectionalLight" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, 4 )
+shadow_enabled = true
+
+[node name="z-light" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 100 )
+shadow_enabled = true
+
+[node name="y-light" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, 100, 4 )
+shadow_enabled = true
