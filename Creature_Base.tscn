@@ -11,8 +11,6 @@ resource_local_to_scene = true
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
-divider = 10
-speed = 20
 perlin_noise = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,4 +19,5 @@ shape = SubResource( 1 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+show_behind_parent = true
 shape = SubResource( 3 )
