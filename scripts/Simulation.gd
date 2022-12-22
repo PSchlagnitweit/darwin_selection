@@ -6,6 +6,8 @@ extends TileMap
 # 	2 Water
 # 	3 Eaten Food
 
+var food_scene = preload("res://scenes/Food.tscn")
+
 func fillFromTexture(texture: Texture):
 	print("fillFromTexture")
 	var image: Image = texture.get_data()
@@ -17,6 +19,13 @@ func fillFromTexture(texture: Texture):
 			var tile: int = -1
 			if col.r > 0:
 				tile = 0
+				var food: Node2D = food_scene.instance()
+				
+				var pos: Vector2 = self.map_to_world(Vector2(x, y))
+				pos = pos + self.get_cell_size() / 2.0
+				
+				food.set_position(pos)
+				add_child(food)
 			elif col.g > 0:
 				tile = 1
 			elif col.b > 0:
