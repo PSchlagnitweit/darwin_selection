@@ -9,7 +9,7 @@ extends TileMap
 func fillFromTexture(texture: Texture):
 	print("fillFromTexture")
 	var image: Image = texture.get_data()
-	# self.clear()
+	self.clear()
 	image.lock()
 	for x in image.get_width():
 		for y in image.get_height():			
