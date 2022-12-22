@@ -8,11 +8,31 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Creature",
+"language": "GDScript",
+"path": "res://evolution/Creature.gd"
+}, {
+"base": "Node",
+"class": "EvolutionaryAlgorithm",
+"language": "GDScript",
+"path": "res://evolution/EvolutionaryAlgorithm.gd"
+} ]
+_global_script_class_icons={
+"Creature": "",
+"EvolutionaryAlgorithm": ""
+}
+
 [application]
 
 config/name="Darwin_Selection"
-run/main_scene="res://testlevel.tscn"
+run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1200
 
 [gui]
 
