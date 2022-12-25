@@ -11,7 +11,9 @@ export(int) var size = 10
 export(int) var sense = 10
 export(int) var amplitude = 10
 
-var area2d
+var sensefield
+var hitfield
+var sprite
 var relative_speed
 var interesting_object = null
 var velocity: Vector2
@@ -26,14 +28,23 @@ export(OpenSimplexNoise) var perlin_noise
 func _ready():
 	randomize()
 	perlin_noise.seed = randi()
-	area2d = get_node("SensingField")
-	area2d.connect("area_entered", self, "return_entered_object")
-	area2d.connect("area_exited", self, "return_object_left")
+	sensefield = get_node("SensingField")
+	sensefield.connect("area_entered", self, "return_sensed_object")
+	sensefield.connect("area_exited", self, "return_object_left_sense")
 
 	relative_speed = speed_adjustment * speed
 	self.scale = Vector2(size / size_adjustment, size / size_adjustment)
 	self.color = Color.red
-	area2d.scale = Vector2(sense / size_adjustment, sense / size_adjustment) / self.scale
+	
+	sensefield.scale = Vector2(sense / size_adjustment, sense / size_adjustment) / self.scale
+	
+	hitfield = get_node("HittingField")
+	hitfield.connect("area_entered", self, "return_hit_object")
+	hitfield.connect("area_exited", self, "return_object_left_hit")
+	hitfield.scale = Vector2(size / size_adjustment, size / size_adjustment) / self.scale * 1.1
+	
+	sprite = get_node("Circle")
+	change_sprite_color()
 	
 func _process(delta):
 	time += delta * amplitude
@@ -42,13 +53,7 @@ func _process(delta):
 		move_to_interesting(interesting_object.position)
 	else:
 		update_position()
-		
-	if get_slide_count() > 0:
-		for i in get_slide_count():
-			var collision = get_slide_collision(i)
-			if collision is Creature_Control:
-				if collision.size > self.size * 1.2:
-					self.get_eaten(collision)
+	
 	update()
 
 func move_to_interesting(position):
@@ -62,16 +67,25 @@ func update_position():
 	velocity = Vector2(sign(perlin_value_x) * relative_speed, sign(perlin_value_y) * relative_speed)
 	self.move_and_slide(velocity)
 
-	
-func _draw():
-	var rad = self.scale.x * size_adjustment
-	draw_circle(Vector2(0, 0), rad, color)
-	
-func return_entered_object(area):
+func change_sprite_color():
+	sprite.modulate = color
+	pass
+func return_sensed_object(area):
 	return area
 
-func return_object_left():
+func return_object_left_sense(_area):
 	interesting_object = null
+	
+func return_hit_object(area):
+	var obj = area.get_parent()
+	if(obj == self):
+		return
+	if obj.is_in_group("Creatures"):
+		if obj.size > self.size * 1.2:
+			get_eaten(obj)
+
+func return_object_left_hit(_area):
+	pass
 
 func get_eaten(collision: Creature_Control):
 	collision.food_count += 1
