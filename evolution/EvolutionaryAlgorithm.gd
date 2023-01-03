@@ -2,7 +2,7 @@ extends Node
 class_name EvolutionaryAlgorithm
 
 # Declare member variables here. Examples:
-
+var creature_template = preload("res://Creature_Base.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -48,16 +48,18 @@ func mutate(creature):
 				creature.sense -= mutation
 	
 
-func evolution(creatures):
-	
-	#var new_creatures = clone(creatures)
-	var new_creatures = procriate(creatures)
+func evolution(creatures, clone):
+	var new_creatures = []
+	if clone:
+		new_creatures = clone(creatures)
+	else:
+		new_creatures = procriate(creatures)
 	# mutate all new creatures
 	for new_creature in new_creatures:
 		mutate(new_creature)
 	# hand new creatures to main
-	for new_creature in new_creatures:
-		get_parent().add_child(new_creature)
+	#for new_creature in new_creatures:
+	#	get_parent().add_child(new_creature)
 	#for creature in creatures:
 	#	mutate(creature)
 	return new_creatures
@@ -67,9 +69,9 @@ func clone(creatures):
 	var new_creatures = []
 	for creature in creatures:
 		# clone for each food above 1
-		for i in range(creature.food - 1):
+		for i in range(creature.food_count - 1):
 			# create a clone of old creature
-			var new_creature = Creature.new()
+			var new_creature = creature_template.instance()
 			new_creature.speed = creature.speed
 			new_creature.size = creature.size
 			new_creature.sense = creature.sense
@@ -82,17 +84,24 @@ func procriate(creatures):
 	var new_creatures = []
 	for creature in creatures:
 		# procriate for each food above 1
-		for i in range(creature.food - 1):
+		for i in range(creature.food_count - 1):
 			# draw random partner from list, potentially itself
 			var draw_partner = randi()%(creatures.size())
 			var partner = creatures[draw_partner]
 			# create a child of old creature
-			var new_creature = Creature.new()
+			var new_creature = creature_template.instance()
 			new_creature.speed = creature.speed
 			new_creature.size = partner.size
 			new_creature.sense = creature.sense
 			# TODO: set positions whereever
 			new_creatures.append(new_creature)
+	return new_creatures
+	
+func populate(n):
+	var new_creatures = []
+	for i in range(n):
+		var new_creature = creature_template.instance()
+		new_creatures.append(new_creature)
 	return new_creatures
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

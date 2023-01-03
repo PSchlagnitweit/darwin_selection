@@ -151,6 +151,90 @@ margin_right = 167.0
 margin_bottom = 74.0
 text = "-> Take Map ->"
 
+[node name="GridContainer2" type="GridContainer" parent="VBoxContainer/UI/SimulationUI/VBoxContainer"]
+margin_top = 78.0
+margin_right = 167.0
+margin_bottom = 98.0
+columns = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer2"]
+margin_top = 3.0
+margin_right = 27.0
+margin_bottom = 17.0
+text = "Map"
+
+[node name="PopulateButton" type="Button" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer2"]
+margin_left = 31.0
+margin_right = 99.0
+margin_bottom = 20.0
+text = "Populate"
+
+[node name="ClearButton" type="Button" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer2"]
+margin_left = 103.0
+margin_right = 147.0
+margin_bottom = 20.0
+text = "Clear"
+
+[node name="GridContainer3" type="GridContainer" parent="VBoxContainer/UI/SimulationUI/VBoxContainer"]
+margin_top = 102.0
+margin_right = 167.0
+margin_bottom = 122.0
+columns = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer3"]
+margin_top = 3.0
+margin_right = 68.0
+margin_bottom = 17.0
+text = "Simulation"
+
+[node name="StartButton" type="Button" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer3"]
+margin_left = 72.0
+margin_right = 113.0
+margin_bottom = 20.0
+text = "Start"
+
+[node name="PauseButton" type="Button" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer3"]
+margin_left = 117.0
+margin_right = 167.0
+margin_bottom = 20.0
+text = "Pause"
+
+[node name="GridContainer4" type="GridContainer" parent="VBoxContainer/UI/SimulationUI/VBoxContainer"]
+margin_top = 126.0
+margin_right = 167.0
+margin_bottom = 140.0
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer4"]
+margin_right = 79.0
+margin_bottom = 14.0
+text = "Generation: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer4"]
+margin_left = 83.0
+margin_right = 91.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="GridContainer5" type="GridContainer" parent="VBoxContainer/UI/SimulationUI/VBoxContainer"]
+margin_top = 144.0
+margin_right = 167.0
+margin_bottom = 168.0
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer5"]
+margin_top = 5.0
+margin_right = 81.0
+margin_bottom = 19.0
+text = "Game Speed"
+
+[node name="GameSpeed" type="SpinBox" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer5"]
+margin_left = 85.0
+margin_right = 159.0
+margin_bottom = 24.0
+min_value = 1.0
+value = 10.0
+
 [node name="MapViewportContainer" type="ViewportContainer" parent="VBoxContainer"]
 margin_left = 517.0
 margin_right = 917.0
