@@ -6,8 +6,12 @@ onready var startPause: Button = $"VBoxContainer/GridContainer/StartPauseButton"
 onready var reset = $"VBoxContainer/GridContainer/ResetButton"
 onready var sizeXSpinBox = $"VBoxContainer/GridContainer2/SizeXSpinBox"
 onready var sizeYSpinBox = $"VBoxContainer/GridContainer2/SizeYSpinBox"
+
 onready var waterProbSpinBox = $"VBoxContainer/GridContainer3/WaterPropSpinBox"
 onready var waterNeighbourThreshold = $"VBoxContainer/GridContainer3/WaterNeighbourThresholdSpinBox"
+
+onready var landProbSpinBox = $"VBoxContainer/GridContainer4/LandProbSpinBox"
+onready var landNeighbourThreshold = $"VBoxContainer/GridContainer4/LandNeighbourThresholdSpinBox"
 
 var sizeX: float
 var sizeY: float
@@ -23,11 +27,16 @@ func _ready():
 
 	waterProbSpinBox.connect("value_changed", self, "on_water_prob_changed")
 	waterNeighbourThreshold.connect("value_changed", self, "on_water_neighbour_threshold_changed")
+
+	landProbSpinBox.connect("value_changed", self, "on_land_prob_changed")
+	landNeighbourThreshold.connect("value_changed", self, "on_land_neighbour_threshold_changed")
 	
 	sizeXSpinBox.set_value(200)
 	sizeYSpinBox.set_value(100)
 	waterProbSpinBox.set_value(1)
 	waterNeighbourThreshold.set_value(2)
+	landProbSpinBox.set_value(1)
+	landNeighbourThreshold.set_value(2)
 
 func on_start_pause_pressed():
 	self.run = !self.run
@@ -52,7 +61,13 @@ func on_size_y_changed(value):
 	mapGen.changeSize(Vector2(self.sizeX, self.sizeY))
 
 func on_water_prob_changed(value):
-	mapGen.changeWaterProb(value/100.0)
+	mapGen.changeShaderParam("waterProbability", value/100.0)
 
 func on_water_neighbour_threshold_changed(value):
-	mapGen.changeWaterNeighbourThreshold(value)
+	mapGen.changeShaderParam("waterNeighbourThreshold", value)
+
+func on_land_prob_changed(value):	
+	mapGen.changeShaderParam("landProbability", value/100.0)
+
+func on_land_neighbour_threshold_changed(value):
+	mapGen.changeShaderParam("landNeighbourThreshold", value)	

@@ -10,4 +10,6 @@ shader_param/mouse_position = Vector2( 0, 0 )
 shader_param/click_threshold = 1.0
 shader_param/run = false
 shader_param/waterProbability = 0.1
-shader_param/waterNeighbourThreshold = 1.0
+shader_param/waterNeighbourThreshold = null
+shader_param/landProbability = null
+shader_param/landNeighbourThreshold = null

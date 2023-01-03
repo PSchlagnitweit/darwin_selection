@@ -142,6 +142,49 @@ min_value = 1.0
 max_value = 8.0
 value = 1.0
 
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 196.0
+margin_right = 211.0
+margin_bottom = 200.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 204.0
+margin_right = 211.0
+margin_bottom = 218.0
+text = "Land"
+
+[node name="GridContainer4" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 222.0
+margin_right = 211.0
+margin_bottom = 274.0
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer4"]
+margin_top = 5.0
+margin_right = 133.0
+margin_bottom = 19.0
+text = "Probability [%]"
+
+[node name="LandProbSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer4"]
+margin_left = 137.0
+margin_right = 211.0
+margin_bottom = 24.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer4"]
+margin_top = 33.0
+margin_right = 133.0
+margin_bottom = 47.0
+text = "Neighbour Threshold"
+
+[node name="LandNeighbourThresholdSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer4"]
+margin_left = 137.0
+margin_top = 28.0
+margin_right = 211.0
+margin_bottom = 52.0
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/UI"]
 margin_left = 229.0
 margin_right = 233.0

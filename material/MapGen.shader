@@ -9,8 +9,11 @@ uniform float click_threshold = 1.0;
 
 uniform bool run = false;
 
-uniform float waterProbability = 0.1;
-uniform float waterNeighbourThreshold = 1.0;
+uniform float waterProbability;
+uniform float waterNeighbourThreshold;
+
+uniform float landProbability;
+uniform float landNeighbourThreshold;
 
 const int LEFT_CLICK = 1;
 const int RIGHT_CLICK = 2;
@@ -74,10 +77,13 @@ void fragment() {
 		} else if(cell.g > 0.0) {
 			// land
 			if(neighbours.b >= waterNeighbourThreshold && random(uv) < waterProbability) {
-				result = water
+				result = water;
 			}
 		} else {
 			// water
+			if(neighbours.g >= landNeighbourThreshold && random(uv) < landProbability) {
+				result = land;
+			}
 		}
 	}
 	
