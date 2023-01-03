@@ -15,6 +15,9 @@ uniform float waterNeighbourThreshold;
 uniform float landProbability;
 uniform float landNeighbourThreshold;
 
+uniform float foodProbability;
+uniform float foodNeighbourThreshold;
+
 const int LEFT_CLICK = 1;
 const int RIGHT_CLICK = 2;
 const int MIDDLE_CLICK = 3;
@@ -72,13 +75,26 @@ void fragment() {
 			texture(TEXTURE, SCREEN_UV + bottom_middle_offset * SCREEN_PIXEL_SIZE) +
 			texture(TEXTURE, SCREEN_UV + bottom_right_offset * SCREEN_PIXEL_SIZE);
 
-		if(cell.r > 0.0) {		
+		if(cell.r > 0.0) {
 			// food
+			if(neighbours.b >= waterNeighbourThreshold && random(uv) < foodProbability) {
+				result = water;
+			} 
+			// if(neighbours.g >= landNeighbourThreshold && random(uv) < landProbability) {
+			// 	result = land;
+			// }
+
 		} else if(cell.g > 0.0) {
 			// land
 			if(neighbours.b >= waterNeighbourThreshold && random(uv) < waterProbability) {
 				result = water;
+			} 
+			else if(neighbours.b >= foodNeighbourThreshold && random(uv) < foodProbability) {
+				result = food;
 			}
+			// else if(neighbours.r >= foodNeighbourThreshold && random(uv) < foodProbability) {
+			// 	result = food;
+			// }
 		} else {
 			// water
 			if(neighbours.g >= landNeighbourThreshold && random(uv) < landProbability) {

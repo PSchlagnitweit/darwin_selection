@@ -9,6 +9,14 @@ onready var sprite2: Sprite = $"Viewport2/Sprite2"
 var mapGenShader = preload("res://material/MapGen.shader")
 var resetShader = preload("res://material/MapGenReset.shader")
 
+signal brushSizeChanged(value)
+
+func _ready():
+	textureRectFinalDisplay.connect("click_threshold_changed", self, "on_click_threshold_changed")
+
+func on_click_threshold_changed(value):
+	emit_signal("brushSizeChanged", value)
+
 func getTexture() -> Texture:
 	return textureRectFinalDisplay.texture
 
@@ -34,4 +42,8 @@ func reset() -> void:
 
 func changeShaderParam(key, value) -> void:
 	sprite1.material.set_shader_param(key, value)
+	
+func changeBrushSize(value) -> void:
+	textureRectFinalDisplay.click_threshold = value
+	sprite1.material.set_shader_param("click_threshold", value)	
 	

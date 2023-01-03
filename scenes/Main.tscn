@@ -69,51 +69,63 @@ margin_bottom = 54.0
 [node name="GridContainer2" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 58.0
 margin_right = 211.0
-margin_bottom = 110.0
+margin_bottom = 138.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
 margin_top = 5.0
-margin_right = 7.0
+margin_right = 67.0
 margin_bottom = 19.0
 text = "x"
 
 [node name="SizeXSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
-margin_left = 11.0
-margin_right = 85.0
+margin_left = 71.0
+margin_right = 145.0
 margin_bottom = 24.0
 max_value = 1000.0
 step = 10.0
 
 [node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
 margin_top = 33.0
-margin_right = 7.0
+margin_right = 67.0
 margin_bottom = 47.0
 text = "Y"
 
 [node name="SizeYSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
-margin_left = 11.0
+margin_left = 71.0
 margin_top = 28.0
-margin_right = 85.0
+margin_right = 145.0
 margin_bottom = 52.0
 max_value = 1000.0
 step = 10.0
 
+[node name="Label3" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
+margin_top = 61.0
+margin_right = 67.0
+margin_bottom = 75.0
+text = "Brush Size"
+
+[node name="BrushSizeSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
+margin_left = 71.0
+margin_top = 56.0
+margin_right = 145.0
+margin_bottom = 80.0
+
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
-margin_top = 114.0
+margin_top = 142.0
 margin_right = 211.0
-margin_bottom = 118.0
+margin_bottom = 146.0
 
 [node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
-margin_top = 122.0
+margin_top = 150.0
 margin_right = 211.0
-margin_bottom = 136.0
+margin_bottom = 164.0
 text = "Water"
 
 [node name="GridContainer3" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
-margin_top = 140.0
+margin_top = 168.0
 margin_right = 211.0
-margin_bottom = 192.0
+margin_bottom = 220.0
 columns = 2
 
 [node name="Label3" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer3"]
@@ -138,25 +150,24 @@ margin_left = 137.0
 margin_top = 28.0
 margin_right = 211.0
 margin_bottom = 52.0
-min_value = 1.0
 max_value = 8.0
 value = 1.0
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
-margin_top = 196.0
+margin_top = 224.0
 margin_right = 211.0
-margin_bottom = 200.0
+margin_bottom = 228.0
 
 [node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
-margin_top = 204.0
+margin_top = 232.0
 margin_right = 211.0
-margin_bottom = 218.0
+margin_bottom = 246.0
 text = "Land"
 
 [node name="GridContainer4" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
-margin_top = 222.0
+margin_top = 250.0
 margin_right = 211.0
-margin_bottom = 274.0
+margin_bottom = 302.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer4"]
@@ -181,9 +192,48 @@ margin_left = 137.0
 margin_top = 28.0
 margin_right = 211.0
 margin_bottom = 52.0
-min_value = 1.0
 max_value = 8.0
 value = 1.0
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 306.0
+margin_right = 211.0
+margin_bottom = 310.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 314.0
+margin_right = 211.0
+margin_bottom = 328.0
+text = "Food"
+
+[node name="GridContainer5" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 332.0
+margin_right = 211.0
+margin_bottom = 384.0
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer5"]
+margin_top = 5.0
+margin_right = 133.0
+margin_bottom = 19.0
+text = "Probability [%]"
+
+[node name="FoodProbSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer5"]
+margin_left = 137.0
+margin_right = 211.0
+margin_bottom = 24.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer5"]
+margin_top = 33.0
+margin_right = 133.0
+margin_bottom = 47.0
+text = "Neighbour Threshold"
+
+[node name="FoodNeighbourThresholdSpinBox2" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer5"]
+margin_left = 137.0
+margin_top = 28.0
+margin_right = 211.0
+margin_bottom = 52.0
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/UI"]
 margin_left = 229.0

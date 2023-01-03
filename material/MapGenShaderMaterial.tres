@@ -13,3 +13,5 @@ shader_param/waterProbability = 0.1
 shader_param/waterNeighbourThreshold = null
 shader_param/landProbability = null
 shader_param/landNeighbourThreshold = null
+shader_param/foodProbability = null
+shader_param/foodNeighbourThreshold = null

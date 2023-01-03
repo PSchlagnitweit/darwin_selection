@@ -7,6 +7,8 @@ var valid_mouse_pos: bool = true
 var mouse_pos: Vector2
 var click_threshold: float
 
+signal click_threshold_changed(value)
+
 func _ready():
 	
 	on_click_threshold_change(5.0)
@@ -16,6 +18,7 @@ func _ready():
 func on_click_threshold_change(value):
 	click_threshold = value
 	Sprite1.material.set_shader_param("click_threshold", value)
+	emit_signal("click_threshold_changed", click_threshold)
 
 func _input(event: InputEvent):
 	if not event is InputEventMouse:
@@ -27,7 +30,7 @@ func _input(event: InputEvent):
 
 	if event is InputEventMouseButton:
 		if event.button_index == 4:
-			on_click_threshold_change(click_threshold - 1)
+			on_click_threshold_change(max(click_threshold - 1, 1.0))
 		elif event.button_index == 5:
 			on_click_threshold_change(click_threshold + 1)
 			
