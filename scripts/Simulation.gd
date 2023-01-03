@@ -10,7 +10,7 @@ extends TileMap
 var food_scene = preload("res://Food.tscn")
 var generation = 0
 onready var generationCount = $"../../../UI/SimulationUI/VBoxContainer/GridContainer4/Label2"
-onready var plotter = $"../../../../Plot2D"
+onready var plotter = $"../../../../Plotter2D"
 
 
 func fillFromTexture(texture: Texture):	
