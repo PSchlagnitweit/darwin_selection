@@ -13,21 +13,14 @@ margin_bottom = 798.0
 margin_right = 2092.0
 margin_bottom = 798.0
 
-[node name="MapGenViewportContainer" type="ViewportContainer" parent="VBoxContainer"]
-margin_right = 300.0
+[node name="MapGen" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 200.0
 margin_bottom = 798.0
-
-[node name="Viewport" type="Viewport" parent="VBoxContainer/MapGenViewportContainer"]
-size = Vector2( 300, 400 )
-size_override_stretch = true
-handle_input_locally = false
-render_target_update_mode = 3
-
-[node name="MapGen" parent="VBoxContainer/MapGenViewportContainer/Viewport" instance=ExtResource( 3 )]
+rect_min_size = Vector2( 200, 0 )
 
 [node name="UI" type="HBoxContainer" parent="VBoxContainer"]
-margin_left = 304.0
-margin_right = 613.0
+margin_left = 204.0
+margin_right = 513.0
 margin_bottom = 798.0
 
 [node name="MapGenUI" type="PanelContainer" parent="VBoxContainer/UI"]
@@ -90,6 +83,7 @@ margin_left = 11.0
 margin_right = 85.0
 margin_bottom = 24.0
 max_value = 1000.0
+step = 10.0
 
 [node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
 margin_top = 33.0
@@ -103,6 +97,7 @@ margin_top = 28.0
 margin_right = 85.0
 margin_bottom = 52.0
 max_value = 1000.0
+step = 10.0
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/UI"]
 margin_left = 120.0
@@ -157,8 +152,8 @@ margin_bottom = 74.0
 text = "-> Take Map ->"
 
 [node name="MapViewportContainer" type="ViewportContainer" parent="VBoxContainer"]
-margin_left = 617.0
-margin_right = 1017.0
+margin_left = 517.0
+margin_right = 917.0
 margin_bottom = 798.0
 
 [node name="Viewport" type="Viewport" parent="VBoxContainer/MapViewportContainer"]

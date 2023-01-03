@@ -3,9 +3,13 @@ shader_type canvas_item;
 uniform bool mouse_pressed = false;
 uniform int mouse_button_index;
 uniform vec2 mouse_position = vec2(0., 0.);
-uniform float fireProbability;
-uniform float treeProbability;
+// uniform float fireProbability;
+// uniform float treeProbability;
 uniform float click_threshold = 1.0;
+
+uniform bool run = false;
+
+uniform float waterProbability = 0.1;
 
 const int LEFT_CLICK = 1;
 const int RIGHT_CLICK = 2;
@@ -53,7 +57,25 @@ void fragment() {
 		} else if(mouse_button_index == MIDDLE_CLICK) {
 			result = food;
 		}
-	} 
+	} else if(run) {
+		vec4 neighbours = 
+			texture(TEXTURE, SCREEN_UV + top_middle_offset * SCREEN_PIXEL_SIZE) +
+			texture(TEXTURE, SCREEN_UV + center_left_offset * SCREEN_PIXEL_SIZE) +
+			texture(TEXTURE, SCREEN_UV + center_right_offset * SCREEN_PIXEL_SIZE) +
+			texture(TEXTURE, SCREEN_UV + bottom_middle_offset * SCREEN_PIXEL_SIZE);
+
+		if(cell.r > 0.0) {		
+			// food
+		} else if(cell.g > 0.0) {
+			// land
+			if(neighbours.g >= 4.0 && random(uv) < waterProbability) {
+				result = water;
+			}
+		} else {
+			// water
+		}
+	}
+	
 	// TODO generation logic
 	
 //	else if (cell.g > 0.0) {

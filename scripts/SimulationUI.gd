@@ -3,7 +3,7 @@ extends PanelContainer
 onready var cameraZoomSpinBox = $"VBoxContainer/GridContainer/CameraZoomSpinBox"
 onready var camera:Camera2D = $"../../MapViewportContainer/Viewport/Camera2D"
 onready var takeMapButton = $"VBoxContainer/TakeMapButton"
-onready var mapGen = $"../../MapGenViewportContainer/Viewport/MapGen"
+onready var mapGen = $"../../MapGen"
 onready var simulation = $"../../MapViewportContainer/Viewport/Simulation"
 
 func _ready():
