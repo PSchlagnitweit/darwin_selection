@@ -41,7 +41,7 @@ func _ready():
 
 	mapGen.connect("brushSizeChanged", self, "on_burshSizedChanged")
 	
-	sizeXSpinBox.set_value(200)
+	sizeXSpinBox.set_value(100)
 	sizeYSpinBox.set_value(100)
 	brushSizeSpinBox.set_value(2.0)
 

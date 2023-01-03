@@ -7,15 +7,16 @@ extends TileMap
 # 	3 Eaten Food
 
 
-var food_scene = preload("res://scenes/Food.tscn")
+var food_scene = preload("res://Food.tscn")
 var generation = 0
 onready var generationCount = $"../../../UI/SimulationUI/VBoxContainer/GridContainer4/Label2"
 
 
-func fillFromTexture(texture: Texture):
-	print("fillFromTexture")
+func fillFromTexture(texture: Texture):	
 	var image: Image = texture.get_data()
 	self.clear()
+	self.clear_population()
+	self.clear_food()
 	image.lock()
 	for x in image.get_width():
 		for y in image.get_height():			
@@ -29,7 +30,7 @@ func fillFromTexture(texture: Texture):
 				pos = pos + self.get_cell_size() / 2.0
 				
 				food.set_position(pos)
-				add_child(food)
+				self.add_child(food)
 			elif col.g > 0:
 				tile = 1
 			elif col.b > 0:
@@ -50,9 +51,14 @@ func populate():
 		new_creature.set_process(false)
 		
 	
-func clear_map():
+func clear_population():
 	for child in self.get_children():
 		if child is Creature_Control:
+			child.queue_free()
+
+func clear_food():
+	for child in self.get_children():
+		if child is Food:
 			child.queue_free()
 			
 func newGeneration():
