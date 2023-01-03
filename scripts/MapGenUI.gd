@@ -1,24 +1,42 @@
 extends PanelContainer
 
+
+onready var mapGen = $"../../MapGen"
+onready var startPause: Button = $"VBoxContainer/GridContainer/StartPauseButton"
+onready var reset = $"VBoxContainer/GridContainer/ResetButton"
 onready var sizeXSpinBox = $"VBoxContainer/GridContainer2/SizeXSpinBox"
 onready var sizeYSpinBox = $"VBoxContainer/GridContainer2/SizeYSpinBox"
-onready var mapGen = $"../../MapGen"
-onready var start = $"VBoxContainer/GridContainer/StartButton"
-onready var pause = $"VBoxContainer/GridContainer/PauseButton"
+onready var waterProbSpinBox = $"VBoxContainer/GridContainer2/WaterPropSpinBox"
 
 var sizeX: float
 var sizeY: float
-var run: bool = false
 
-func _ready():
+var run: bool = false;
+
+func _ready():	
+	startPause.connect("pressed", self, "on_start_pause_pressed")
+	reset.connect("pressed", self, "on_reset_pressed")
+
 	sizeXSpinBox.connect("value_changed", self, "on_size_x_changed")
 	sizeYSpinBox.connect("value_changed", self, "on_size_y_changed")
-	start.connect("pressed", self, "on_start_pressed")
-	pause.connect("pressed", self, "on_pause_pressed")
+	waterProbSpinBox.connect("value_changed", self, "on_water_prob_changed")
 	
 	sizeXSpinBox.set_value(200)
 	sizeYSpinBox.set_value(100)
-	
+	waterProbSpinBox.set_value(1)
+
+func on_start_pause_pressed():
+	self.run = !self.run
+	if self.run:
+		startPause.set_text("Pause")
+		mapGen.start()
+	else:
+		startPause.set_text("Start")
+		mapGen.pause()
+
+func on_reset_pressed():
+	mapGen.reset()
+
 func on_size_x_changed(value):	
 	self.sizeX = value
 	mapGen.changeSize(Vector2(self.sizeX, self.sizeY))
@@ -27,8 +45,5 @@ func on_size_y_changed(value):
 	self.sizeY = value
 	mapGen.changeSize(Vector2(self.sizeX, self.sizeY))
 
-func on_start_pressed():
-	self.run = true
-
-func on_pause_pressed():
-	self.run = false
+func on_water_prob_changed(value):
+	mapGen.changeWaterProb(value/100.0)

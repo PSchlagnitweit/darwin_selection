@@ -20,93 +20,105 @@ rect_min_size = Vector2( 200, 0 )
 
 [node name="UI" type="HBoxContainer" parent="VBoxContainer"]
 margin_left = 204.0
-margin_right = 513.0
+margin_right = 557.0
 margin_bottom = 798.0
 
 [node name="MapGenUI" type="PanelContainer" parent="VBoxContainer/UI"]
-margin_right = 116.0
+margin_right = 160.0
 margin_bottom = 798.0
 script = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/UI/MapGenUI"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 109.0
+margin_right = 153.0
 margin_bottom = 791.0
 
 [node name="Title" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
-margin_right = 102.0
+margin_right = 146.0
 margin_bottom = 14.0
 text = "Map Generation"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 18.0
-margin_right = 102.0
+margin_right = 146.0
 margin_bottom = 22.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 26.0
-margin_right = 102.0
+margin_right = 146.0
 margin_bottom = 46.0
 columns = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer"]
+[node name="StartPauseButton" type="Button" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer"]
 margin_right = 41.0
 margin_bottom = 20.0
 text = "Start"
 
-[node name="PauseButton" type="Button" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer"]
+[node name="ResetButton" type="Button" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer"]
 margin_left = 45.0
-margin_right = 95.0
+margin_right = 93.0
 margin_bottom = 20.0
-text = "Pause"
+text = "Reset"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 50.0
-margin_right = 102.0
+margin_right = 146.0
 margin_bottom = 54.0
 
 [node name="GridContainer2" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 58.0
-margin_right = 102.0
-margin_bottom = 110.0
+margin_right = 146.0
+margin_bottom = 138.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
 margin_top = 5.0
-margin_right = 7.0
+margin_right = 68.0
 margin_bottom = 19.0
 text = "x"
 
 [node name="SizeXSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
-margin_left = 11.0
-margin_right = 85.0
+margin_left = 72.0
+margin_right = 146.0
 margin_bottom = 24.0
 max_value = 1000.0
 step = 10.0
 
 [node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
 margin_top = 33.0
-margin_right = 7.0
+margin_right = 68.0
 margin_bottom = 47.0
 text = "Y"
 
 [node name="SizeYSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
-margin_left = 11.0
+margin_left = 72.0
 margin_top = 28.0
-margin_right = 85.0
+margin_right = 146.0
 margin_bottom = 52.0
 max_value = 1000.0
 step = 10.0
 
+[node name="Label3" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
+margin_top = 61.0
+margin_right = 68.0
+margin_bottom = 75.0
+text = "water prob"
+
+[node name="WaterPropSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
+margin_left = 72.0
+margin_top = 56.0
+margin_right = 146.0
+margin_bottom = 80.0
+
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/UI"]
-margin_left = 120.0
-margin_right = 124.0
+margin_left = 164.0
+margin_right = 168.0
 margin_bottom = 798.0
 
 [node name="SimulationUI" type="PanelContainer" parent="VBoxContainer/UI"]
-margin_left = 128.0
-margin_right = 309.0
+margin_left = 172.0
+margin_right = 353.0
 margin_bottom = 798.0
 script = ExtResource( 2 )
 
@@ -236,8 +248,8 @@ min_value = 1.0
 value = 10.0
 
 [node name="MapViewportContainer" type="ViewportContainer" parent="VBoxContainer"]
-margin_left = 517.0
-margin_right = 917.0
+margin_left = 561.0
+margin_right = 961.0
 margin_bottom = 798.0
 
 [node name="Viewport" type="Viewport" parent="VBoxContainer/MapViewportContainer"]
