@@ -31,7 +31,8 @@ func on_camera_zoom_change(value):
 	camera.set_zoom(Vector2(value, value))
 	
 func on_take_map_pressed():
-	print("on_take_map_pressed")
+	var texture: Texture = mapGen.getTexture()
+	simulation.fillFromTexture(texture)
 	
 	
 func on_populate_map_pressed():
