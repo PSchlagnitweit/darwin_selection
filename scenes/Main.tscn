@@ -20,33 +20,33 @@ rect_min_size = Vector2( 200, 0 )
 
 [node name="UI" type="HBoxContainer" parent="VBoxContainer"]
 margin_left = 204.0
-margin_right = 557.0
+margin_right = 622.0
 margin_bottom = 798.0
 
 [node name="MapGenUI" type="PanelContainer" parent="VBoxContainer/UI"]
-margin_right = 160.0
+margin_right = 225.0
 margin_bottom = 798.0
 script = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/UI/MapGenUI"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 153.0
+margin_right = 218.0
 margin_bottom = 791.0
 
 [node name="Title" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
-margin_right = 146.0
+margin_right = 211.0
 margin_bottom = 14.0
 text = "Map Generation"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 18.0
-margin_right = 146.0
+margin_right = 211.0
 margin_bottom = 22.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 26.0
-margin_right = 146.0
+margin_right = 211.0
 margin_bottom = 46.0
 columns = 2
 
@@ -63,62 +63,93 @@ text = "Reset"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 50.0
-margin_right = 146.0
+margin_right = 211.0
 margin_bottom = 54.0
 
 [node name="GridContainer2" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
 margin_top = 58.0
-margin_right = 146.0
-margin_bottom = 138.0
+margin_right = 211.0
+margin_bottom = 110.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
 margin_top = 5.0
-margin_right = 68.0
+margin_right = 7.0
 margin_bottom = 19.0
 text = "x"
 
 [node name="SizeXSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
-margin_left = 72.0
-margin_right = 146.0
+margin_left = 11.0
+margin_right = 85.0
 margin_bottom = 24.0
 max_value = 1000.0
 step = 10.0
 
 [node name="Label2" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
 margin_top = 33.0
-margin_right = 68.0
+margin_right = 7.0
 margin_bottom = 47.0
 text = "Y"
 
 [node name="SizeYSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
-margin_left = 72.0
+margin_left = 11.0
 margin_top = 28.0
-margin_right = 146.0
+margin_right = 85.0
 margin_bottom = 52.0
 max_value = 1000.0
 step = 10.0
 
-[node name="Label3" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
-margin_top = 61.0
-margin_right = 68.0
-margin_bottom = 75.0
-text = "water prob"
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 114.0
+margin_right = 211.0
+margin_bottom = 118.0
 
-[node name="WaterPropSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer2"]
-margin_left = 72.0
-margin_top = 56.0
-margin_right = 146.0
-margin_bottom = 80.0
+[node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 122.0
+margin_right = 211.0
+margin_bottom = 136.0
+text = "Water"
+
+[node name="GridContainer3" type="GridContainer" parent="VBoxContainer/UI/MapGenUI/VBoxContainer"]
+margin_top = 140.0
+margin_right = 211.0
+margin_bottom = 192.0
+columns = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer3"]
+margin_top = 5.0
+margin_right = 133.0
+margin_bottom = 19.0
+text = "Probability [%]"
+
+[node name="WaterPropSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer3"]
+margin_left = 137.0
+margin_right = 211.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer3"]
+margin_top = 33.0
+margin_right = 133.0
+margin_bottom = 47.0
+text = "Neighbour Threshold"
+
+[node name="WaterNeighbourThresholdSpinBox" type="SpinBox" parent="VBoxContainer/UI/MapGenUI/VBoxContainer/GridContainer3"]
+margin_left = 137.0
+margin_top = 28.0
+margin_right = 211.0
+margin_bottom = 52.0
+min_value = 1.0
+max_value = 8.0
+value = 1.0
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/UI"]
-margin_left = 164.0
-margin_right = 168.0
+margin_left = 229.0
+margin_right = 233.0
 margin_bottom = 798.0
 
 [node name="SimulationUI" type="PanelContainer" parent="VBoxContainer/UI"]
-margin_left = 172.0
-margin_right = 353.0
+margin_left = 237.0
+margin_right = 418.0
 margin_bottom = 798.0
 script = ExtResource( 2 )
 
@@ -248,8 +279,8 @@ min_value = 1.0
 value = 10.0
 
 [node name="MapViewportContainer" type="ViewportContainer" parent="VBoxContainer"]
-margin_left = 561.0
-margin_right = 961.0
+margin_left = 626.0
+margin_right = 1026.0
 margin_bottom = 798.0
 
 [node name="Viewport" type="Viewport" parent="VBoxContainer/MapViewportContainer"]

@@ -34,3 +34,6 @@ func reset() -> void:
 
 func changeWaterProb(value) -> void:
 	sprite1.material.set_shader_param("waterProbability", value)	
+
+func changeWaterNeighbourThreshold(value) -> void:
+	sprite1.material.set_shader_param("waterNeighbourThreshold", value)	
