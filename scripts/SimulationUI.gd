@@ -40,7 +40,7 @@ func on_populate_map_pressed():
 
 
 func on_clear_map_pressed():
-	simulation.clear()
+	simulation.clear_map()
 
 
 func on_start_simulation_pressed():

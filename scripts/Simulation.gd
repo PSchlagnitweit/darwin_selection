@@ -50,7 +50,7 @@ func populate():
 		new_creature.set_process(false)
 		
 	
-func clear():
+func clear_map():
 	for child in self.get_children():
 		if child is Creature_Control:
 			child.queue_free()
