@@ -45,12 +45,12 @@ func _ready():
 	sizeYSpinBox.set_value(100)
 	brushSizeSpinBox.set_value(2.0)
 
-	waterProbSpinBox.set_value(1)
+	waterProbSpinBox.set_value(2)
 	waterNeighbourThreshold.set_value(2)
 	landProbSpinBox.set_value(1)
-	landNeighbourThreshold.set_value(2)
+	landNeighbourThreshold.set_value(1)
 	foodProbSpinBox.set_value(1)
-	foodNeighbourThreshold.set_value(2)
+	foodNeighbourThreshold.set_value(1)
 
 func on_burshSizedChanged(value):
 	brushSizeSpinBox.set_value(value)

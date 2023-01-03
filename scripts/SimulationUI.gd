@@ -13,7 +13,7 @@ onready var gameSpeedSpinBox = $"VBoxContainer/GridContainer5/GameSpeed"
 
 func _ready():
 	cameraZoomSpinBox.connect("value_changed", self, "on_camera_zoom_change")	
-	cameraZoomSpinBox.set_value(10)
+	cameraZoomSpinBox.set_value(15)
 	
 	takeMapButton.connect("pressed", self, "on_take_map_pressed")
 	
