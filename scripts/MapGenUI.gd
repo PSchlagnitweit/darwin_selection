@@ -36,6 +36,8 @@ func on_start_pause_pressed():
 
 func on_reset_pressed():
 	mapGen.reset()
+	self.run = false
+	startPause.set_text("Start")
 
 func on_size_x_changed(value):	
 	self.sizeX = value
