@@ -16,7 +16,7 @@ func mutate(creature):
 	# randomly pick up or down mutation
 	var roll = (randf() > 0.5)
 	# define mutation amount
-	var mutation=0.1
+	var mutation = 1.0
 	# gene rolled speed
 	if gene == 0:
 		if creature.speed < (mutation + 0.05):
