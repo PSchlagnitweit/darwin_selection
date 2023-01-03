@@ -6,7 +6,11 @@ extends TileMap
 # 	2 Water
 # 	3 Eaten Food
 
+
 var food_scene = preload("res://scenes/Food.tscn")
+var generation = 0
+onready var generationCount = $"../../../UI/SimulationUI/VBoxContainer/GridContainer4/Label2"
+
 
 func fillFromTexture(texture: Texture):
 	print("fillFromTexture")
@@ -32,3 +36,65 @@ func fillFromTexture(texture: Texture):
 				tile = 2				
 			self.set_cell(x, y, tile)
 	image.unlock()
+	
+func pause(pause):
+	for child in self.get_children():
+		if child is Creature_Control:
+			child.set_process(!pause)
+
+func populate():
+	var new_creatures = get_node("EA").populate(4)
+	for new_creature in new_creatures:
+		new_creature.position = Vector2((randi()%400)+400, (randi()%600)+200) 
+		self.add_child(new_creature)
+		new_creature.set_process(false)
+		
+	
+func clear():
+	for child in self.get_children():
+		if child is Creature_Control:
+			child.queue_free()
+			
+func newGeneration():
+	generation += 1
+	generationCount.text = str(generation)
+	var reproduce_creatures = []
+	for child in get_children():
+		if child is Creature_Control:
+			if child.food_count < 1: # remove if it has not found any food
+				child.queue_free()
+			elif child.food_count > 1:
+				reproduce_creatures.append(child)
+					
+	var new_creatures = get_node("EA").evolution(reproduce_creatures,true)
+	for new_creature in new_creatures:
+		new_creature.position = Vector2((randi()%400)+400, (randi()%600)+200)
+		new_creature.energy = 0 
+		self.add_child(new_creature)
+		new_creature.set_process(true)
+		
+	for child in get_children():
+		if child is Creature_Control:
+			child.food_count = 0
+			child.energy = 10
+
+# main loop	
+func _process(delta):
+	var creature_count = 0
+	var finished_creatures = 0
+	for child in get_children():
+		if child is Creature_Control:
+			creature_count += 1
+			if child.energy < 0.1:
+				finished_creatures += 1
+				
+	if creature_count == 0:
+		return
+	
+	if finished_creatures == creature_count:
+		newGeneration()
+				
+
+
+
+

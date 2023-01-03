@@ -22,7 +22,7 @@ var color: Color
 var food_count = 0
 var energy = 10
 var time = 0.0
-export(OpenSimplexNoise) var perlin_noise
+export(OpenSimplexNoise) var perlin_noise = OpenSimplexNoise.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
