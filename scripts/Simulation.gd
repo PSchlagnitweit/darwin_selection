@@ -7,7 +7,7 @@ extends TileMap
 # 	3 Eaten Food
 
 
-var food_scene = preload("res://Food.tscn")
+var food_scene = preload("res://scenes/Food.tscn")
 var generation = 0
 onready var generationCount = $"../../../UI/SimulationUI/VBoxContainer/GridContainer4/Label2"
 onready var plotter = $"../../../../Plotter2D"
@@ -47,7 +47,7 @@ func pause(pause):
 func populate():
 	var new_creatures = get_node("EA").populate(4)
 	for new_creature in new_creatures:
-		new_creature.position = Vector2((randi()%400)+400, (randi()%600)+200) 
+		spawn_creatures(new_creature)
 		self.add_child(new_creature)
 		#new_creature.set_process(false)
 		
@@ -80,7 +80,7 @@ func newGeneration():
 					
 	var new_creatures = get_node("EA").evolution(reproduce_creatures,true) # true = clone, false = procriate
 	for new_creature in new_creatures:
-		new_creature.position = Vector2((randi()%400)+400, (randi()%600)+200)
+		spawn_creatures(new_creature)
 		new_creature.energy = 0 
 		self.add_child(new_creature)
 		new_creature.set_process(true)
@@ -92,7 +92,26 @@ func newGeneration():
 		if child is Creature_Control:
 			child.food_count = 0
 			child.energy = 10
+	
+	self.clear_food()
+	var food_tiles = get_used_cells_by_id(0)
+	
+	
+	for food_tile in food_tiles:
+		var food: Node2D = food_scene.instance()
+		var pos: Vector2 = self.map_to_world(food_tile)
+		pos = pos + self.get_cell_size() / 2.0
+		food.set_position(pos)
+		self.add_child(food)
 
+func spawn_creatures(new_creature):
+	new_creature.position = Vector2((randi()%5000)+400, (randi()%5000)+400)
+	var tile_map = world_to_map(new_creature.position)
+	var tile_id = get_cellv(tile_map)
+	if(tile_id == 2):
+		spawn_creatures(new_creature)
+	
+	
 # main loop	
 func _process(delta):
 	var creature_count = 0

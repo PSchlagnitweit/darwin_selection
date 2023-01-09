@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Simulation.gd" type="Script" id=2]
-[ext_resource path="res://Creature_Base.tscn" type="PackedScene" id=3]
 [ext_resource path="res://evolution/EvolutionaryAlgorithm.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
@@ -80,21 +79,6 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 } ]
 2/z_index = 0
 
-[sub_resource type="OpenSimplexNoise" id=7]
-resource_local_to_scene = true
-
-[sub_resource type="OpenSimplexNoise" id=8]
-resource_local_to_scene = true
-
-[sub_resource type="OpenSimplexNoise" id=9]
-resource_local_to_scene = true
-
-[sub_resource type="OpenSimplexNoise" id=10]
-resource_local_to_scene = true
-
-[sub_resource type="OpenSimplexNoise" id=11]
-resource_local_to_scene = true
-
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource( 6 )
 format = 1
@@ -102,26 +86,3 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 script = ExtResource( 2 )
 
 [node name="EA" parent="." instance=ExtResource( 4 )]
-
-[node name="Creature" parent="." groups=["Creatures"] instance=ExtResource( 3 )]
-position = Vector2( 600, 472 )
-size = 15
-perlin_noise = SubResource( 7 )
-
-[node name="Creature2" parent="." groups=["Creatures"] instance=ExtResource( 3 )]
-position = Vector2( 805, 876 )
-perlin_noise = SubResource( 8 )
-
-[node name="Creature3" parent="." groups=["Creatures"] instance=ExtResource( 3 )]
-position = Vector2( 734, 390 )
-perlin_noise = SubResource( 9 )
-
-[node name="Creature4" parent="." groups=["Creatures"] instance=ExtResource( 3 )]
-position = Vector2( 805, 820 )
-speed = 5
-perlin_noise = SubResource( 10 )
-
-[node name="Creature5" parent="." groups=["Creatures"] instance=ExtResource( 3 )]
-position = Vector2( 761, 516 )
-speed = 15
-perlin_noise = SubResource( 11 )

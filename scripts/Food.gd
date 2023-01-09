@@ -16,12 +16,13 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _draw():
-	var rad = 10
-	draw_circle(Vector2(0, 0), rad, Color.red)
-
 func get_eaten(area):
-	var parent: Creature_Control = area.get_parent()
+	var obj = area
+	if(obj == self):
+		return
+	if obj.is_in_group("HittingField"):
+		obj.get_parent().food_count += 1
+		queue_free()
+			
 
-	parent.food_count += 1
-	queue_free()
+	

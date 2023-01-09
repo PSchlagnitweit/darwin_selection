@@ -2,7 +2,7 @@ extends Node
 class_name EvolutionaryAlgorithm
 
 # Declare member variables here. Examples:
-var creature_template = preload("res://Creature_Base.tscn")
+var creature_template = preload("res://scenes/Creature_Base.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

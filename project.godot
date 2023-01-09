@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Creature_Control",
 "language": "GDScript",
-"path": "res://Creature_Control.gd"
+"path": "res://scripts/Creature_Control.gd"
 }, {
 "base": "Node",
 "class": "EvolutionaryAlgorithm",
@@ -22,12 +22,24 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Food",
 "language": "GDScript",
-"path": "res://Food.gd"
+"path": "res://scripts/Food.gd"
+}, {
+"base": "Node2D",
+"class": "plot2D",
+"language": "GDScript",
+"path": "res://plot/plot2D.gd"
+}, {
+"base": "Node2D",
+"class": "point2D",
+"language": "GDScript",
+"path": "res://plot/point2D.gd"
 } ]
 _global_script_class_icons={
 "Creature_Control": "",
 "EvolutionaryAlgorithm": "",
-"Food": ""
+"Food": "",
+"plot2D": "",
+"point2D": ""
 }
 
 [application]

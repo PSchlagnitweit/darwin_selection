@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Creature_Control.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Creature_Control.gd" type="Script" id=1]
 [ext_resource path="res://assets/circle.png" type="Texture" id=2]
-
-[sub_resource type="OpenSimplexNoise" id=2]
-resource_local_to_scene = true
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -12,22 +9,21 @@ resource_local_to_scene = true
 
 [sub_resource type="CircleShape2D" id=4]
 
-[node name="Creature" type="KinematicBody2D"]
+[node name="Creature" type="KinematicBody2D" groups=["Creatures"]]
 script = ExtResource( 1 )
 size_adjustment = 3
-sense = 20
-perlin_noise = SubResource( 2 )
+speed_adjustment = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="SensingField" type="Area2D" parent="."]
+[node name="SensingField" type="Area2D" parent="." groups=["SensingField"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SensingField"]
 show_behind_parent = true
 shape = SubResource( 3 )
 
-[node name="HittingField" type="Area2D" parent="."]
+[node name="HittingField" type="Area2D" parent="." groups=["HittingField"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HittingField"]
 shape = SubResource( 4 )
