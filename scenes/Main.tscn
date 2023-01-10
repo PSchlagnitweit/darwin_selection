@@ -354,10 +354,27 @@ margin_right = 91.0
 margin_bottom = 14.0
 text = "0"
 
-[node name="GridContainer5" type="GridContainer" parent="VBoxContainer/UI/SimulationUI/VBoxContainer"]
+[node name="GridContainer6" type="GridContainer" parent="VBoxContainer/UI/SimulationUI/VBoxContainer"]
 margin_top = 144.0
 margin_right = 167.0
-margin_bottom = 168.0
+margin_bottom = 158.0
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer6"]
+margin_right = 65.0
+margin_bottom = 14.0
+text = "Creatures:"
+
+[node name="Label2" type="Label" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer6"]
+margin_left = 69.0
+margin_right = 77.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="GridContainer5" type="GridContainer" parent="VBoxContainer/UI/SimulationUI/VBoxContainer"]
+margin_top = 162.0
+margin_right = 167.0
+margin_bottom = 186.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/UI/SimulationUI/VBoxContainer/GridContainer5"]

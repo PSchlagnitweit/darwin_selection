@@ -10,6 +10,7 @@ extends TileMap
 var food_scene = preload("res://scenes/Food.tscn")
 var generation = 0
 onready var generationCount = $"../../../UI/SimulationUI/VBoxContainer/GridContainer4/Label2"
+onready var creatureCount = $"../../../UI/SimulationUI/VBoxContainer/GridContainer6/Label2"
 onready var plotter = $"../../../../Plotter2D"
 
 
@@ -121,7 +122,7 @@ func _process(delta):
 			creature_count += 1
 			if child.energy < 0.1:
 				finished_creatures += 1
-				
+	generationCount.text = str(creature_count)			
 	if creature_count == 0:
 		return
 	
