@@ -4,6 +4,8 @@ class_name EvolutionaryAlgorithm
 # Declare member variables here. Examples:
 var creature_template = preload("res://scenes/Creature_Base.tscn")
 
+var maxvalue = 30
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +23,8 @@ func mutate(creature):
 	if gene == 0:
 		if creature.speed < (mutation + 0.05):
 			creature.speed += mutation
+		elif creature.speed > (maxvalue - 0.05):
+			creature.speed -= mutation 
 		else:
 			if roll:
 				creature.speed += mutation
@@ -31,6 +35,8 @@ func mutate(creature):
 	elif gene == 1:
 		if creature.size < (mutation + 0.05):
 			creature.size += mutation
+		elif creature.size > (maxvalue - 0.05):
+			creature.size -= mutation 
 		else:
 			if roll:
 				creature.size += mutation
@@ -41,6 +47,8 @@ func mutate(creature):
 	else:
 		if creature.sense < (mutation + 0.05):
 			creature.sense += mutation
+		elif creature.sense > (maxvalue - 0.05):
+			creature.sense -= mutation 
 		else:
 			if roll:
 				creature.sense += mutation
