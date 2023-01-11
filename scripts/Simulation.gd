@@ -46,7 +46,7 @@ func pause(pause):
 			child.set_process(!pause)
 
 func populate():
-	var new_creatures = get_node("EA").populate(4)
+	var new_creatures = get_node("EA").populate(10)
 	for new_creature in new_creatures:
 		spawn_creatures(new_creature)
 		self.add_child(new_creature)
@@ -79,7 +79,7 @@ func newGeneration():
 				creature_vectors.append(Vector3(child.speed, child.size, child.sense))
 				
 					
-	var new_creatures = get_node("EA").evolution(reproduce_creatures,true) # true = clone, false = procriate
+	var new_creatures = get_node("EA").evolution(reproduce_creatures,false) # true = clone, false = procriate
 	for new_creature in new_creatures:
 		spawn_creatures(new_creature)
 		new_creature.energy = 0 
@@ -122,7 +122,7 @@ func _process(delta):
 			creature_count += 1
 			if child.energy < 0.1:
 				finished_creatures += 1
-	generationCount.text = str(creature_count)			
+	creatureCount.text = str(creature_count)			
 	if creature_count == 0:
 		return
 	

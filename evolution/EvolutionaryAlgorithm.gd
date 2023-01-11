@@ -85,6 +85,7 @@ func clone(creatures):
 			new_creature.sense = creature.sense
 			# TODO: set positions to same as creature
 			new_creatures.append(new_creature)
+			#break # only once
 	return new_creatures
 	
 	
@@ -103,6 +104,7 @@ func procriate(creatures):
 			new_creature.sense = creature.sense
 			# TODO: set positions whereever
 			new_creatures.append(new_creature)
+			#break # only once
 	return new_creatures
 	
 func populate(n):
