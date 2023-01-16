@@ -39,7 +39,7 @@ func _ready():
 
 	relative_speed = speed_adjustment * speed
 	self.scale = Vector2(size / size_adjustment, size / size_adjustment)
-	self.color = Color.red
+	self.color = Color.black
 	
 	sensefield.scale = Vector2(sense_adjustment_multi * sense + sense_adjustment_flat/ size_adjustment, sense_adjustment_multi * sense + sense_adjustment_flat/ size_adjustment) / self.scale
 	
